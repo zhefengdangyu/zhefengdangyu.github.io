@@ -7,6 +7,7 @@
 	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
 	</style>
 	<script>
+		function loadJScript() {
 		var loc = document.location.search;
 		
 		
@@ -18,6 +19,8 @@
  		script2.type="text/javascript";
 		script2.src="https://api.map.baidu.com/getscript?v=2.0&ak=ZyWCyr4b3MSpKL6VWf9SrBHD&amp;services=&t=20190123111209";
 		document.head.appendChild(script2);
+		}
+		window.onload = loadJScript;
 	</script>
 <!-- 	<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZyWCyr4b3MSpKL6VWf9SrBHD"></script> -->
 <!-- 	<script type="text/javascript" src="https://api.map.baidu.com/getscript?v=2.0&amp;ak=ZyWCyr4b3MSpKL6VWf9SrBHD&amp;services=&amp;t=20190123111209"></script> -->
