@@ -3,43 +3,24 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<style type="text/css">
-	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
-	</style>
-	<script>
-		function loadJScript() {
-		var loc = document.location.search;
-		
-		
-		var script1=document.createElement('script');
- 		script1.type="text/javascript";
-		script1.src="https://api.map.baidu.com/api?v=2.0&ak=ZyWCyr4b3MSpKL6VWf9SrBHD";
-		document.head.appendChild(script1);
-		var script2=document.createElement('script');
- 		script2.type="text/javascript";
-		script2.src="https://api.map.baidu.com/getscript?v=2.0&ak=ZyWCyr4b3MSpKL6VWf9SrBHD&amp;services=&t=20190123111209";
-		document.head.appendChild(script2);
-		}
-		window.onload = loadJScript;
-	</script>
-<!-- 	<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZyWCyr4b3MSpKL6VWf9SrBHD"></script> -->
-<!-- 	<script type="text/javascript" src="https://api.map.baidu.com/getscript?v=2.0&amp;ak=ZyWCyr4b3MSpKL6VWf9SrBHD&amp;services=&amp;t=20190123111209"></script> -->
-	<title>地图展示</title>
+	
 </head>
 <body>
-	<div id="allmap"></div>
+	<div> 
+    <video id="live" width="320" height="240" autoplay></video> 
+</div> 
 </body>
 </html>
 <script type="text/javascript">
-	// 百度地图API功能
-	var map = new BMap.Map("allmap");    // 创建Map实例
-	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
-	//添加地图类型控件
-	map.addControl(new BMap.MapTypeControl({
-		mapTypes:[
-            BMAP_NORMAL_MAP,
-            BMAP_HYBRID_MAP
-        ]}));	  
-	map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
-	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+	video = document.getElementById("live") 
+    var ctx; 
+    // use the chrome specific GetUserMedia function 
+    navigator.webkitGetUserMedia("video", 
+            function(stream) { 
+                video.src = webkitURL.createObjectURL(stream); 
+            }, 
+            function(err) { 
+                console.log("Unable to get video stream!") 
+            } 
+    ) 
 </script>
